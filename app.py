@@ -13,6 +13,8 @@ import numpy as np
 from langchain.agents import initialize_agent, AgentType
 from langchain.tools import Tool
 from langchain_google_genai import ChatGoogleGenerativeAI
+import warnings
+warnings.filterwarnings("ignore")
 import gradio as gr
 
 # ── Load model bundle ─────────────────────────────────────────────────────────
@@ -155,7 +157,7 @@ def chat(user_message, history):
     history.append((user_message, response))
     return history, ""
 
-with gr.Blocks(title="10MS Viral Predictor", theme=gr.themes.Soft()) as demo:
+with gr.Blocks(title="10MS Viral Predictor") as demo:
     gr.Markdown("""
 # 🎯 10 Minute School — Viral Video Prediction Agent
 **ML model trained on 2,845 real 10MS YouTube videos · LightGBM + LangChain + Gemini**
@@ -173,4 +175,4 @@ Try asking:
     msg.submit(chat, [msg, chatbot], [chatbot, msg])
     clear.click(lambda: ([], ""), outputs=[chatbot, msg])
 
-demo.launch()
+demo.launch(theme=gr.themes.Soft())
