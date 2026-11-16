@@ -1,6 +1,6 @@
 langchain==0.3.7
 langchain-google-genai==2.0.4
-gradio==5.5.0
+gradio
 lightgbm==4.5.0
 scikit-learn==1.5.2
 pandas==2.2.3
