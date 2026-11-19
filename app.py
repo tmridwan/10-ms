@@ -16,6 +16,11 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 import warnings
 warnings.filterwarnings("ignore")
 import gradio as gr
+import spaces
+
+@spaces.GPU(duration=0)
+def _dummy():
+    pass
 
 # ── Load model bundle ─────────────────────────────────────────────────────────
 bundle    = joblib.load("viral_model.pkl")
@@ -174,5 +179,5 @@ Try asking:
 
     msg.submit(chat, [msg, chatbot], [chatbot, msg])
     clear.click(lambda: ([], ""), outputs=[chatbot, msg])
-
+#nnnnnnnnnnnnnnn
 demo.launch(theme=gr.themes.Soft(), ssr_mode=False)
