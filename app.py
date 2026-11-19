@@ -175,4 +175,4 @@ Try asking:
     msg.submit(chat, [msg, chatbot], [chatbot, msg])
     clear.click(lambda: ([], ""), outputs=[chatbot, msg])
 
-demo.launch(theme=gr.themes.Soft())
+demo.launch(theme=gr.themes.Soft(), ssr_mode=False)
